@@ -33,7 +33,7 @@ Ensure you have **Make** installed.
 ### Installation  
 1. Clone this repository:  
    ```bash
-   git clone https://github.com/<your_username>/minitalk.git
+   git clone https://github.com/anmahfou/minitalk.git
    cd minitalk
    ```
 
