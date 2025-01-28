@@ -1,98 +1,117 @@
-MiniTalk 🗨️
-A lightweight client-server chat application
-By: [Your Name/Login]
+# Minitalk  
 
-Badge C License
+A **42/1337 School Project** – Minitalk is a simple messaging system that demonstrates inter-process communication using **signals** in C. This project highlights low-level programming skills, signal handling, and process synchronization.
 
-📖 Overview
-MiniTalk is a simple client-server chat application written in C. It allows two programs to communicate using UNIX signals (SIGUSR1 and SIGUSR2). This project is part of the curriculum at 1337 School (42 Network) and demonstrates low-level system programming and inter-process communication (IPC).
+## 📜 Project Overview  
 
-✨ Features
-Client-Server Architecture: One program acts as the server, the other as the client.
+Minitalk consists of a **client** and a **server**:
+- **Server**: Receives messages and prints them to the console.
+- **Client**: Sends messages to the server using Unix signals (`SIGUSR1` and `SIGUSR2`).
 
-Signal-Based Communication: Uses SIGUSR1 and SIGUSR2 to send bits (0s and 1s).
+The project emphasizes understanding how to:
+- Use Unix signals for IPC (Inter-Process Communication).
+- Implement a custom protocol for message encoding and decoding.
+- Manage processes efficiently.
 
-Unicode Support: Can send ASCII and extended Unicode characters.
+---
 
-Acknowledgement System: The server sends a confirmation signal after receiving each message.
+## 🛠️ Features  
+- Custom message encoding using **binary translation**.
+- Communication via **SIGUSR1** and **SIGUSR2** signals.
+- Reliable transfer of messages with precise timing.
+- Supports Unicode/extended ASCII characters.
 
-Error Handling: Robust error checks for invalid PIDs, signal errors, and timeouts.
+---
 
-🛠️ Installation
-Clone the Repository
+## 🚀 Getting Started  
 
-bash
-Copy
-git clone https://github.com/[your_username]/minitlk.git
-cd minitlk
-Compile the Code
+### Prerequisites  
+- **OS**: Linux (tested on Ubuntu).
+- **Compiler**: GCC or any C-compatible compiler.  
+Ensure you have **Make** installed.
 
-bash
-Copy
-make
-This will generate two executables:
+### Installation  
+1. Clone this repository:  
+   ```bash
+   git clone https://github.com/<your_username>/minitalk.git
+   cd minitalk
+   ```
 
-server
+2. Build the project using Make:  
+   ```bash
+   make
+   ```
 
-client
+---
 
-🚀 Usage
-Step 1: Start the Server
-Run the server program. It will display its PID:
+### Usage  
 
-bash
-Copy
-./server
-> Server PID: 4242
-Step 2: Run the Client
-Provide the server’s PID and a message to send:
+1. Start the server:  
+   ```bash
+   ./server
+   ```  
+   The server will display its **Process ID (PID)**, which is required for the client to send messages.
 
-bash
-Copy
-./client 4242 "Hello, 1337!"
-Example Output
-Server Side:
+2. Send a message from the client:  
+   ```bash
+   ./client <server_pid> "Your message here"
+   ```  
 
-plaintext
-Copy
-Message received: Hello, 1337!
-Client Side:
+Example:  
+```bash
+./client 12345 "Hello, 42!"
+```
 
-plaintext
-Copy
-Message sent successfully!
-📚 Documentation
-For a detailed explanation of the project:
+---
 
-PDF Subject
+## 📂 Project Structure  
 
-Technical Notes:
+- **server.c**: Core server logic for receiving and decoding messages.  
+- **client.c**: Logic for encoding and sending messages to the server.  
+- **Makefile**: Automates the build process for the project.
 
-Signals are sent bit-by-bit (8 bits per character).
+---
 
-The server uses usleep to handle signal congestion.
+## 🧠 Learning Outcomes  
 
-🧪 Testing
-Test the program with edge cases:
+Through Minitalk, you will:
+- Gain a deeper understanding of **process communication**.
+- Learn to handle Unix **signals** effectively.
+- Master timing and synchronization between processes.
 
-bash
-Copy
-# Very long message
-./client [PID] "$(cat /dev/urandom | head -c 1000)"
+---
 
-# Empty message (should throw an error)
-./client [PID] ""
-🤝 Contributing
-Fork the repository.
+## 📋 Evaluation Criteria  
 
-Create a branch: git checkout -b feature/your-feature.
+This project follows **1337/42 School**'s rigorous standards:  
+- **Norm-compliant** code.  
+- No memory leaks (verified with tools like `valgrind`).  
+- Efficient and robust communication.
 
-Commit changes: git commit -m 'Add some feature'.
+---
 
-Push to the branch: git push origin feature/your-feature.
+## 👩‍💻 Contributions  
 
-Open a Pull Request.
+If you'd like to contribute:
+1. Fork the repository.
+2. Create a feature branch:  
+   ```bash
+   git checkout -b feature-name
+   ```  
+3. Commit your changes:  
+   ```bash
+   git commit -m "Description of changes"
+   ```  
+4. Push your changes:  
+   ```bash
+   git push origin feature-name
+   ```  
+5. Submit a pull request!
 
-📜 License
-This project is licensed under the MIT License. See LICENSE for details.
+---
+
+
+## 🏆 Acknowledgments  
+
+Special thanks to **1337 School** and the **42 Network** for the incredible learning opportunity.
 
